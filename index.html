@@ -1,1 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <main class="flex">
+        <div class="img-section relative">
+            <div class="flex center blackstrip absolute">
+                <img class="logo" src="odin-lined.png">
+                <h1 class="logo-text">Odin</h1>
+            </div>
+
+        </div>
+        <div class="form-section">
+            <p><strong>This is not a real online service! You know you need something
+                    like this in your life to help you realize your deepest dreams.<br>
+                    Sign up <em>now</em> to get started.
+                </strong></p>
+            <p>
+                You <i>know</i> you want to.
+            </p>
+            <form action="" method="POST">
+                <fieldset>
+                <legend> let's do This !</legend>
+                <div class="flex">
+                    <div>
+                        <label for="firstname">First Name</label><br>
+                        <input type="text" name="firstname" id="firstname" title="Please Enter your First name" required>
+                    </div>
+                    <div>
+                        <label for="lastname">Last Name</label><br>
+                        <input type="text" name="lastname" id="lastname" title="Please Enter your Last name">
+                    </div>
+                </div>
+
+                <div class="flex">
+                <div>
+                    <label for="email">Email</label><br>
+                    <input type="email" name="email" id="email" title="Enter your email in example@mail.com format"required>
+                </div>
+                <div>
+                    <label for="phone">Phone Number</label><br>
+                    <input type="tel" name="phone" id="phone" pattern="[0-9]+" title="Please enter only numeric values for phone number" oninput="validatePhone()">
+                </div>
+                </div>
+
+                <div class="flex">
+                <div>
+                    <label for="password" class="password">Password <span class="toggle-password" onclick="togglePasswordVisibility()">👁️</span></label><br>
+                    <input oninput="passValid()" type="password" name="password" id="password" minlength="8" title="Add mix Character and numeric at least 8 or more." required>
+                </div>
+                <div>
+                    <label for="confirm-password">Confirm Password <span id="password-eye" class="toggle-password" onclick="toggleConfirmPasswordVisibility()">👁️</span></label><br>
+                    <input oninput="passValid()" type="Password" name="confirm-password" id="confirm-password" minlength="8" title="Add mix Character and numeric at least 8 or more." required>
+
+                </div>
+            </div>
+            <button type="submit" class="btn">Create Account</button>
+            </form>
+            <p>Already have an account <a href="" class="log-in">Log In</a></p>
+        </fieldset>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+    <script>
+        function passValid(){
+        let password = document.getElementById("password")
+        let confirmPassword = document.getElementById("confirm-password")
+
+        if(password.value !== confirmPassword.value){
+            password.classList.add('error')
+            confirmPassword.classList.add('error')
+
+        }else{
+            password.classList.remove('error')
+            confirmPassword.classList.remove('error')
+        }
+    }
+    function validatePhone() {
+      var phoneInput = document.getElementById("phone");
+      phoneInput.value = phoneInput.value.replace(/[^0-9]/g, ''); // Remove non-numeric characters
+    }
+
+    function togglePasswordVisibility() {
+      var passwordInput = document.getElementById("password");
+      passwordInput.type = (passwordInput.type === "password") ? "text" : "password";
+    }
+
+    function toggleConfirmPasswordVisibility() {
+      let passwordEye = document.getElementById("password-eye")
+      var confirmPasswordInput = document.getElementById("confirm-password");
+      confirmPasswordInput.type = (confirmPasswordInput.type === "password") ? "text" : "password";
+
+    }
+    </script>
+</body>
+
+</html>
